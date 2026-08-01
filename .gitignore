@@ -1,0 +1,15 @@
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.*
+terraform.tfvars
+*.tfvars
+crash.log
+
+# VS Code
+.vscode/
+
+# Windows
+Thumbs.db
+
+개선해야할 점/

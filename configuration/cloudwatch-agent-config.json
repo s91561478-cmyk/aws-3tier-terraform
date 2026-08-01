@@ -1,0 +1,69 @@
+{
+    "agent": {
+        "metrics_collection_interval": 60,
+        "run_as_user": "root"
+    },
+    "metrics": {
+        "namespace": "ecom/dev",
+        "aggregation_dimensions": [
+            [
+                "InstanceId"
+            ]
+        ],
+        "append_dimensions": {
+            "AutoScalingGroupName": "${aws:AutoScalingGroupName}",
+            "ImageId": "${aws:ImageId}",
+            "InstanceId": "${aws:InstanceId}",
+            "InstanceType": "${aws:InstanceType}"
+        },
+        "metrics_collected": {
+            "disk": {
+                "measurement": [
+                    "used_percent"
+                ],
+                "metrics_collection_interval": 60,
+                "resources": [
+                    "/"
+                ]
+            },
+            "mem": {
+                "measurement": [
+                    "mem_used_percent"
+                ],
+                "metrics_collection_interval": 60
+            }
+        }
+    },
+    "logs": {
+        "logs_collected": {
+            "files": {
+                "collect_list": [
+                    {
+                        "file_path": "/var/log/httpd/access_log",
+                        "log_group_name": "/wordpress/apache/access",
+                        "log_stream_name": "{instance_id}",
+                        "retention_in_days": 30
+                    },
+                    {
+                        "file_path": "/var/log/httpd/error_log",
+                        "log_group_name": "/wordpress/apache/error",
+                        "log_stream_name": "{instance_id}",
+                        "retention_in_days": 30
+                    },
+                    {
+                        "file_path": "/var/log/cloud-init.log",
+                        "log_group_name": "/wordpress/cloud-init",
+                        "log_stream_name": "{instance_id}",
+                        "retention_in_days": 30
+                    },
+                    {
+                        "file_path": "/var/log/cloud-init-output.log",
+                        "log_group_name": "/wordpress/cloud-init-output",
+                        "log_stream_name": "{instance_id}",
+                        "retention_in_days": 30
+                    }
+                ]
+            }
+        }
+    }
+}
