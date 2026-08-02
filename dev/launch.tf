@@ -6,7 +6,9 @@ resource "aws_launch_template" "ecom_dev_app_lt" {
     iam_instance_profile {
         name = aws_iam_instance_profile.ecom_dev_ec2_instance_profile.name  # EC2에 연결할 IAM 인스턴스 프로파일
     }
-    vpc_security_group_ids = [aws_security_group.ecom_dev_app_sg.id]        # EC2에 연결할 보안그룹
+    vpc_security_group_ids = [
+        aws_security_group.ecom_dev_app_sg.id                               # EC2에 연결할 보안그룹
+    ]
     metadata_options {                                                      # Instance Metadata Service(IMDS) 설정
         http_endpoint = "enabled"                                           # IMDS 활성화
         http_tokens = "required"                                            # IMDSv2만 허용 (IMDSv1 차단)
@@ -24,7 +26,7 @@ resource "aws_launch_template" "ecom_dev_app_lt" {
     }
     user_data = base64encode(
         templatefile("${path.module}/userdata/app_userdata.sh", {           # EC2 유저 데이터
-            efs_id = aws_efs_file_system.ecom_dev_efs.id                    # EFS ID 전달
+            efs_id = data.terraform_remote_state.persistent.outputs.ecom_dev_efs_id      # EFS ID 전달
         })
     )
 }

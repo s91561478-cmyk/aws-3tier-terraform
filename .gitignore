@@ -1,10 +1,12 @@
 # Terraform
-.terraform/
+**/.terraform/*
 *.tfstate
 *.tfstate.*
-terraform.tfvars
 *.tfvars
+*.tfvars.json
+*.tfplan
 crash.log
+crash.*.log
 
 # VS Code
 .vscode/
@@ -12,4 +14,5 @@ crash.log
 # Windows
 Thumbs.db
 
+# Personal notes
 개선해야할 점/
