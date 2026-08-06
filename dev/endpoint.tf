@@ -4,7 +4,7 @@ resource "aws_vpc_endpoint" "ecom_dev_ssm_ept_ssm" {
   service_name      = "com.amazonaws.ap-northeast-2.ssm"
   vpc_endpoint_type = "Interface"
   subnet_ids = [
-    aws_subnet.ecom_dev_app_subnet_01.id, 
+    aws_subnet.ecom_dev_app_subnet_01.id,
     aws_subnet.ecom_dev_app_subnet_02.id
   ]
   security_group_ids = [
@@ -24,7 +24,7 @@ resource "aws_vpc_endpoint" "ecom_dev_ssm_ept_ssmmessages" {
   service_name      = "com.amazonaws.ap-northeast-2.ssmmessages"
   vpc_endpoint_type = "Interface"
   subnet_ids = [
-    aws_subnet.ecom_dev_app_subnet_01.id, 
+    aws_subnet.ecom_dev_app_subnet_01.id,
     aws_subnet.ecom_dev_app_subnet_02.id
   ]
   security_group_ids = [
@@ -44,7 +44,7 @@ resource "aws_vpc_endpoint" "ecom_dev_ssm_ept_ec2messages" {
   service_name      = "com.amazonaws.ap-northeast-2.ec2messages"
   vpc_endpoint_type = "Interface"
   subnet_ids = [
-    aws_subnet.ecom_dev_app_subnet_01.id, 
+    aws_subnet.ecom_dev_app_subnet_01.id,
     aws_subnet.ecom_dev_app_subnet_02.id
   ]
   security_group_ids = [
@@ -64,7 +64,7 @@ resource "aws_vpc_endpoint" "ecom_dev_ssm_ept_logs" {
   service_name      = "com.amazonaws.ap-northeast-2.logs"
   vpc_endpoint_type = "Interface"
   subnet_ids = [
-    aws_subnet.ecom_dev_app_subnet_01.id, 
+    aws_subnet.ecom_dev_app_subnet_01.id,
     aws_subnet.ecom_dev_app_subnet_02.id
   ]
   security_group_ids = [

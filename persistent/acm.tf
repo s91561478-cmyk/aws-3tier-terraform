@@ -21,6 +21,10 @@ resource "aws_acm_certificate" "ecom_dev_acm" {
   }
 }
 
+output "ecom_dev_acm_arn" {
+    value = aws_acm_certificate.ecom_dev_acm.arn                            # ACM 인증서 ARN
+}
+
 # ACM 인증서 DNS 검증 레코드 생성
 # 참고 https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/acm_certificate
 resource "aws_route53_record" "ecom_dev_acm_dnsrecord" { 
