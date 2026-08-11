@@ -1,18 +1,24 @@
-# Terraform
-**/.terraform/*
+# Terraform state
 *.tfstate
 *.tfstate.*
+
+# Terraform working directory
+.terraform/
+
+# Terraform variable files
 *.tfvars
 *.tfvars.json
+
+# Terraform plan files
 *.tfplan
+
+# Terraform crash logs
 crash.log
 crash.*.log
 
-# VS Code
-.vscode/
+# Terraform CLI configuration
+.terraformrc
+terraform.rc
 
-# Windows
-Thumbs.db
-
-# Personal notes
-memo/
+#memo
+/memo
