@@ -22,3 +22,6 @@ terraform.rc
 
 #memo
 /memo
+
+#WordPress config
+modules/ssm/configuration/wp-config.php
