@@ -21,3 +21,11 @@ output "alb_zone_id" {
   description = "ALB Zone ID"
   value       = aws_lb.ecom_dev_alb.zone_id
 }
+
+# ============================================================
+# ALB ARN
+# ============================================================
+output "alb_arn" {
+  description = "ALB ARN"
+  value       = aws_lb.ecom_dev_alb.arn
+}
