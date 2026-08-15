@@ -5,7 +5,7 @@ resource "aws_launch_template" "ecom_dev_app_lt" {
   name = "ecom-dev-app-lt" # Launch Template name
 
   image_id      = data.aws_ami.ecom_dev_ami.id # AMI ID
-  instance_type = "t3.micro"                   # Instance type
+  instance_type = "t3.small"                   # Instance type
 
   iam_instance_profile {
     name = aws_iam_instance_profile.ecom_dev_ec2_instance_profile.name # IAM Instance Profile
