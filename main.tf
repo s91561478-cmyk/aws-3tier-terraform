@@ -83,3 +83,13 @@ module "rds" {
 module "ssm" {
   source = "./modules/ssm"
 }
+
+# ============================================================
+# WAF Module
+# ============================================================
+module "waf" {
+  source = "./modules/waf"
+
+  waf_admin_ip_address = var.waf_admin_ip_address
+  alb_arn              = module.alb.alb_arn
+}
