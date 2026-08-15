@@ -21,7 +21,7 @@ crash.*.log
 terraform.rc
 
 #memo
-/memo
+/memo.md
 
 #WordPress config
 modules/ssm/configuration/wp-config.php
