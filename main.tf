@@ -93,3 +93,27 @@ module "waf" {
   waf_admin_ip_address = var.waf_admin_ip_address
   alb_arn              = module.alb.alb_arn
 }
+
+# ============================================================
+# SNS Module
+# ============================================================
+module "sns" {
+  source = "./modules/sns"
+
+  sns_email = var.sns_email
+}
+
+# ============================================================
+# CloudWatch Module
+# ============================================================
+module "cloudwatch" {
+  source = "./modules/cloudwatch"
+
+  asg_name                = module.ec2.asg_name
+  ec2_instance_id         = var.ec2_instance_id
+  rds_identifier          = module.rds.rds_identifier
+  target_group_arn_suffix = module.alb.target_group_arn_suffix
+  alb_arn_suffix          = module.alb.alb_arn_suffix
+  waf_web_acl_name        = module.waf.waf_web_acl_name
+  sns_topic_arn           = module.sns.sns_topic_arn
+}
