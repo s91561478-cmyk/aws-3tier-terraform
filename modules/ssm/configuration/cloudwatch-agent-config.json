@@ -6,9 +6,8 @@
     "metrics": {
         "namespace": "ecom/dev",
         "aggregation_dimensions": [
-            [
-                "InstanceId"
-            ]
+            ["AutoScalingGroupName"],
+            ["InstanceId"]
         ],
         "append_dimensions": {
             "AutoScalingGroupName": "${aws:AutoScalingGroupName}",
